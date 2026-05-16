@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --cream: #F0EAE0;
       --cream-dark: #E6DDD0;
@@ -19,9 +18,7 @@
       --mid: #550000;
       --border: rgba(12,12,12,0.1);
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--cream);
       color: var(--black);
@@ -30,7 +27,6 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
     /* ── NAV ── */
     nav {
       position: fixed;
@@ -44,7 +40,6 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-logo {
       display: flex;
       align-items: center;
@@ -52,22 +47,18 @@
       text-decoration: none;
       color: var(--black);
     }
-
     .nav-logo svg { width: 28px; height: 28px; }
-
     .nav-logo-text {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 18px;
       font-weight: 500;
       letter-spacing: -0.02em;
     }
-
     .nav-right {
       display: flex;
       align-items: center;
       gap: 32px;
     }
-
     .nav-link {
       font-size: 14px;
       color: var(--mid);
@@ -75,7 +66,6 @@
       transition: color 0.2s;
     }
     .nav-link:hover { color: var(--black); }
-
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -94,7 +84,6 @@
       letter-spacing: -0.01em;
     }
     .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-
     .btn-outline {
       display: inline-flex;
       align-items: center;
@@ -111,7 +100,6 @@
       font-family: 'Inter', sans-serif;
     }
     .btn-outline:hover { background: var(--black); color: var(--cream); }
-
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -124,7 +112,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -140,14 +127,12 @@
       margin-bottom: 40px;
       animation: fadeUp 0.6s ease both;
     }
-
     .hero-badge span {
       width: 6px; height: 6px;
       background: var(--black);
       border-radius: 50%;
       display: inline-block;
     }
-
     .hero-headline {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(48px, 7vw, 96px);
@@ -157,12 +142,10 @@
       margin-bottom: 12px;
       animation: fadeUp 0.6s 0.1s ease both;
     }
-
     .hero-headline em {
       font-style: normal;
       color: var(--mid);
     }
-
     .hero-sub {
       font-size: clamp(15px, 2vw, 18px);
       color: var(--mid);
@@ -172,37 +155,12 @@
       font-weight: 400;
       animation: fadeUp 0.6s 0.2s ease both;
     }
-
-    .hero-form {
-      display: flex;
-      gap: 10px;
-      max-width: 440px;
-      width: 100%;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-
-    .hero-form input {
-      flex: 1;
-      padding: 13px 18px;
-      border-radius: 100px;
-      border: 1.5px solid var(--border);
-      background: rgba(255,255,255,0.5);
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      color: var(--black);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .hero-form input::placeholder { color: var(--mid); }
-    .hero-form input:focus { border-color: var(--black); }
-
     .hero-note {
       font-size: 12px;
       color: var(--mid);
       margin-top: 14px;
       animation: fadeUp 0.6s 0.35s ease both;
     }
-
     /* ── TICKER ── */
     .ticker-wrap {
       border-top: 1px solid var(--border);
@@ -211,13 +169,11 @@
       overflow: hidden;
       white-space: nowrap;
     }
-
     .ticker-track {
       display: inline-flex;
       gap: 64px;
       animation: ticker 28s linear infinite;
     }
-
     .ticker-item {
       font-size: 13px;
       color: var(--mid);
@@ -227,20 +183,16 @@
       align-items: center;
       gap: 12px;
     }
-
     .ticker-item::after {
       content: '·';
       color: var(--border);
     }
-
     @keyframes ticker {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
-
     /* ── SECTIONS ── */
     section { padding: 120px 48px; }
-
     .section-label {
       font-size: 11px;
       font-weight: 600;
@@ -249,7 +201,6 @@
       color: var(--mid);
       margin-bottom: 20px;
     }
-
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(32px, 4vw, 52px);
@@ -258,14 +209,12 @@
       max-width: 640px;
       margin-bottom: 20px;
     }
-
     .section-body {
       font-size: 17px;
       color: var(--mid);
       max-width: 560px;
       line-height: 1.7;
     }
-
     /* ── PROBLEM ── */
     .problem {
       display: grid;
@@ -275,43 +224,36 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .stat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2px;
     }
-
     .stat-card {
       background: var(--mid);
       color: var(--cream);
       padding: 40px 32px;
     }
-
     .stat-card:first-child { border-radius: 20px 0 0 0; }
     .stat-card:nth-child(2) { border-radius: 0 20px 0 0; }
     .stat-card:nth-child(3) { border-radius: 0 0 0 20px; }
     .stat-card:last-child { border-radius: 0 0 20px 0; }
-
     .stat-number {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 48px;
       line-height: 1;
       margin-bottom: 8px;
     }
-
     .stat-desc {
       font-size: 13px;
       color: rgba(240,234,224,0.6);
       line-height: 1.5;
     }
-
     /* ── HOW IT WORKS ── */
     .how-inner {
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .how-header {
       display: flex;
       justify-content: space-between;
@@ -320,22 +262,18 @@
       flex-wrap: wrap;
       gap: 24px;
     }
-
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2px;
     }
-
     .step {
       background: var(--cream-dark);
       padding: 48px 40px;
       position: relative;
     }
-
     .step:first-child { border-radius: 20px 0 0 20px; }
     .step:last-child { border-radius: 0 20px 20px 0; }
-
     .step-num {
       font-size: 11px;
       font-weight: 600;
@@ -344,93 +282,39 @@
       text-transform: uppercase;
       margin-bottom: 32px;
     }
-
     .step-icon {
       width: 40px;
       height: 40px;
       margin-bottom: 20px;
     }
-
     .step-title {
       font-size: 20px;
       font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
-
     .step-desc {
       font-size: 14px;
       color: var(--mid);
       line-height: 1.65;
     }
-
-    /* ── DIFFERENCE ── */
-    .diff-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .diff-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      margin-top: 64px;
-    }
-
-    .diff-card {
-      background: var(--cream-dark);
-      padding: 48px 40px;
-      border-radius: 4px;
-    }
-
-    .diff-card:first-child { border-radius: 20px 4px 4px 4px; }
-    .diff-card:nth-child(2) { border-radius: 4px 20px 4px 4px; }
-    .diff-card:nth-child(3) { border-radius: 4px 4px 4px 20px; }
-    .diff-card:last-child { border-radius: 4px 4px 20px 4px; }
-
-    .diff-card-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 16px;
-    }
-
-    .diff-card-title {
-      font-size: 22px;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .diff-card-body {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
     /* ── TEAM ── */
     .team-inner {
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .team-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2px;
       margin-top: 64px;
     }
-
     .team-card {
       background: var(--cream-dark);
       padding: 40px;
     }
-
     .team-card:first-child { border-radius: 20px 0 0 20px; }
     .team-card:last-child { border-radius: 0 20px 20px 0; }
-
     .team-avatar {
       width: 56px;
       height: 56px;
@@ -444,20 +328,17 @@
       font-size: 20px;
       color: var(--cream);
     }
-
     .team-name {
       font-size: 18px;
       font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 4px;
     }
-
     .team-role {
       font-size: 13px;
       color: var(--mid);
       margin-bottom: 12px;
     }
-
     .team-bg {
       font-size: 13px;
       color: var(--mid);
@@ -465,7 +346,6 @@
       padding-top: 12px;
       border-top: 1px solid var(--border);
     }
-
     /* ── CTA ── */
     .cta-section {
       background: var(--black);
@@ -473,55 +353,31 @@
       text-align: center;
       padding: 120px 48px;
     }
-
     .cta-section .section-title {
       color: var(--cream);
       margin: 0 auto 16px;
     }
-
     .cta-section .section-body {
       color: rgba(240,234,224,0.5);
       margin: 0 auto 48px;
     }
-
-    .cta-form {
-      display: flex;
-      gap: 10px;
-      max-width: 440px;
-      margin: 0 auto;
-      justify-content: center;
-    }
-
-    .cta-form input {
-      flex: 1;
-      padding: 13px 18px;
-      border-radius: 100px;
-      border: 1.5px solid rgba(240,234,224,0.15);
-      background: rgba(240,234,224,0.05);
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      color: var(--cream);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .cta-form input::placeholder { color: rgba(240,234,224,0.35); }
-    .cta-form input:focus { border-color: rgba(240,234,224,0.4); }
-
     .btn-cream {
+      display: inline-flex;
+      align-items: center;
       background: var(--cream);
       color: var(--black);
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 500;
-      padding: 13px 22px;
+      padding: 13px 28px;
       border-radius: 100px;
+      text-decoration: none;
       border: none;
       cursor: pointer;
       white-space: nowrap;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, transform 0.15s;
     }
-    .btn-cream:hover { opacity: 0.85; }
-
+    .btn-cream:hover { opacity: 0.85; transform: translateY(-1px); }
     /* ── FOOTER ── */
     footer {
       padding: 40px 48px;
@@ -530,7 +386,6 @@
       align-items: center;
       justify-content: space-between;
     }
-
     .footer-logo {
       display: flex;
       align-items: center;
@@ -538,16 +393,13 @@
       text-decoration: none;
       color: var(--black);
     }
-
     .footer-logo svg { width: 22px; height: 22px; }
     .footer-logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: -0.02em; }
-
     .footer-right {
       display: flex;
       align-items: center;
       gap: 32px;
     }
-
     .footer-link {
       font-size: 13px;
       color: var(--mid);
@@ -555,28 +407,17 @@
       transition: color 0.2s;
     }
     .footer-link:hover { color: var(--black); }
-
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .fade-up {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.visible { opacity: 1; transform: none; }
-
-    /* ── SUCCESS STATE ── */
-    .success-msg {
-      display: none;
-      font-size: 13px;
-      color: var(--mid);
-      margin-top: 12px;
-    }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
@@ -586,7 +427,6 @@
       .steps { grid-template-columns: 1fr; }
       .step:first-child { border-radius: 20px 20px 0 0; }
       .step:last-child { border-radius: 0 0 20px 20px; }
-      .diff-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: 1fr; }
       .team-card:first-child { border-radius: 20px 20px 0 0; }
       .team-card:last-child { border-radius: 0 0 20px 20px; }
@@ -595,7 +435,6 @@
   </style>
 </head>
 <body>
-
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
@@ -612,27 +451,20 @@
       <a href="#problem" class="nav-link">The Problem</a>
       <a href="#platform" class="nav-link">Platform</a>
       <a href="#team" class="nav-link">Team</a>
-      <a href="#waitlist" class="btn-primary">Request Access</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPnYSbLB0yAkp9VEmTySHZUfwO2lmAxV6sVlsd5_taA4u6ag/viewform?usp=publish-editor" target="_blank" class="btn-primary">Fill Out Our Questionnaire</a>
     </div>
   </nav>
-
   <!-- HERO -->
   <section class="hero">
-    </div>
     <h1 class="hero-headline">
       The next generation<br/>of drug discovery<br/><em>is female.</em>
     </h1>
     <p class="hero-sub">
       Nexagen is an AI-powered drug discovery platform built specifically for women's health, starting with the conditions science has ignored the longest.
     </p>
-    <form class="hero-form" id="hero-form" onsubmit="handleSubmit(event, 'hero')">
-      <input type="email" placeholder="your@email.com" required />
-      <button type="submit" class="btn-primary">Join Waitlist</button>
-    </form>
-    <p class="hero-note">Early access · No spam · Built by women, for women</p>
-    <p class="success-msg" id="hero-success">You're on the list! We'll be in touch.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPnYSbLB0yAkp9VEmTySHZUfwO2lmAxV6sVlsd5_taA4u6ag/viewform?usp=publish-editor" target="_blank" class="btn-primary" style="animation: fadeUp 0.6s 0.3s ease both;">Fill Out Our Questionnaire</a>
+    <p class="hero-note">Early access · Built by women, for women</p>
   </section>
-
   <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-track">
@@ -654,7 +486,6 @@
       <span class="ticker-item">AI Drug Discovery</span>
     </div>
   </div>
-
   <!-- PROBLEM -->
   <section id="problem">
     <div class="problem">
@@ -687,7 +518,6 @@
       </div>
     </div>
   </section>
-
   <!-- HOW IT WORKS -->
   <section id="platform" style="background: var(--cream-dark); border-radius: 32px; margin: 0 24px;">
     <div class="how-inner">
@@ -735,7 +565,6 @@
       </div>
     </div>
   </section>
-
   <!-- TEAM -->
   <section id="team">
     <div class="team-inner">
@@ -765,20 +594,15 @@
       </div>
       <p class="section-body fade-up" style="margin-top: 32px;">
         Selected for <strong>HackNation Venture Lab Cohort 2.</strong> 30 teams from 5,500+ applicants. Backed by EWOR and Databricks.
+      </p>
     </div>
   </section>
-
   <!-- CTA -->
   <section class="cta-section" id="waitlist">
     <h2 class="section-title fade-up">Be first to access Nexagen.</h2>
     <p class="section-body fade-up">We're onboarding a small group of research teams and biotech founders to shape the platform. If you work in women's health drug discovery, we want to hear from you.</p>
-    <form class="cta-form fade-up" id="cta-form" onsubmit="handleSubmit(event, 'cta')">
-      <input type="email" placeholder="your@email.com" required />
-      <button type="submit" class="btn-cream">Request Access</button>
-    </form>
-    <p class="success-msg" id="cta-success" style="color: rgba(240,234,224,0.6); margin-top: 16px;">You're on the list. We'll be in touch.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPnYSbLB0yAkp9VEmTySHZUfwO2lmAxV6sVlsd5_taA4u6ag/viewform?usp=publish-editor" target="_blank" class="btn-cream fade-up">Fill Out Our Questionnaire</a>
   </section>
-
   <!-- FOOTER -->
   <footer>
     <a href="#" class="footer-logo">
@@ -793,32 +617,16 @@
     </a>
     <div class="footer-right">
       <span style="font-size: 13px; color: var(--mid);">© 2026 Nexagen</span>
-      <a href="mailto:hello@nexagen.ai" class="footer-link">hello@nexagen.bio</a>
+      <a href="mailto:hello@nexagen.bio" class="footer-link">hello@nexagen.bio</a>
     </div>
   </footer>
-
   <script>
-    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
-        if (el.isIntersecting) {
-          el.target.classList.add('visible');
-        }
+        if (el.isIntersecting) el.target.classList.add('visible');
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Form submission
-    function handleSubmit(e, id) {
-      e.preventDefault();
-      const form = e.target;
-      const input = form.querySelector('input');
-      const successEl = document.getElementById(id + '-success');
-      // In production, POST to your backend here
-      form.style.display = 'none';
-      successEl.style.display = 'block';
-    }
   </script>
 </body>
 </html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexagen — The Next Generation of Drug Discovery</title>
+  <meta name="description" content="Nexagen is an AI-powered drug discovery platform built for women's health. Accelerating target identification for the conditions science has ignored." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F0EAE0;
+      --cream-dark: #E6DDD0;
+      --black: #0C0C0C;
+      --black-soft: #1A1A1A;
+      --mid: #550000;
+      --border: rgba(12,12,12,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 48px;
+      background: rgba(240, 234, 224, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .nav-logo svg { width: 28px; height: 28px; }
+
+    .nav-logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--black); }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--black);
+      color: var(--cream);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--black);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1.5px solid var(--black);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-outline:hover { background: var(--black); color: var(--cream); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-badge span {
+      width: 6px; height: 6px;
+      background: var(--black);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .hero-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+      margin-bottom: 12px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--mid);
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--mid);
+      max-width: 520px;
+      line-height: 1.65;
+      margin: 24px auto 48px;
+      font-weight: 400;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-form {
+      display: flex;
+      gap: 10px;
+      max-width: 440px;
+      width: 100%;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .hero-form input {
+      flex: 1;
+      padding: 13px 18px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.5);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .hero-form input::placeholder { color: var(--mid); }
+    .hero-form input:focus { border-color: var(--black); }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--mid);
+      margin-top: 14px;
+      animation: fadeUp 0.6s 0.35s ease both;
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      gap: 64px;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-item {
+      font-size: 13px;
+      color: var(--mid);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ticker-item::after {
+      content: '·';
+      color: var(--border);
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 120px 48px; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 640px;
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 17px;
+      color: var(--mid);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── PROBLEM ── */
+    .problem {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .stat-card {
+      background: var(--mid);
+      color: var(--cream);
+      padding: 40px 32px;
+    }
+
+    .stat-card:first-child { border-radius: 20px 0 0 0; }
+    .stat-card:nth-child(2) { border-radius: 0 20px 0 0; }
+    .stat-card:nth-child(3) { border-radius: 0 0 0 20px; }
+    .stat-card:last-child { border-radius: 0 0 20px 0; }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-desc {
+      font-size: 13px;
+      color: rgba(240,234,224,0.6);
+      line-height: 1.5;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .how-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .step {
+      background: var(--cream-dark);
+      padding: 48px 40px;
+      position: relative;
+    }
+
+    .step:first-child { border-radius: 20px 0 0 20px; }
+    .step:last-child { border-radius: 0 20px 20px 0; }
+
+    .step-num {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ── DIFFERENCE ── */
+    .diff-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .diff-card {
+      background: var(--cream-dark);
+      padding: 48px 40px;
+      border-radius: 4px;
+    }
+
+    .diff-card:first-child { border-radius: 20px 4px 4px 4px; }
+    .diff-card:nth-child(2) { border-radius: 4px 20px 4px 4px; }
+    .diff-card:nth-child(3) { border-radius: 4px 4px 4px 20px; }
+    .diff-card:last-child { border-radius: 4px 4px 20px 4px; }
+
+    .diff-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+
+    .diff-card-title {
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .diff-card-body {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── TEAM ── */
+    .team-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .team-card {
+      background: var(--cream-dark);
+      padding: 40px;
+    }
+
+    .team-card:first-child { border-radius: 20px 0 0 20px; }
+    .team-card:last-child { border-radius: 0 20px 20px 0; }
+
+    .team-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--black);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      color: var(--cream);
+    }
+
+    .team-name {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 13px;
+      color: var(--mid);
+      margin-bottom: 12px;
+    }
+
+    .team-bg {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.5;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--black);
+      color: var(--cream);
+      text-align: center;
+      padding: 120px 48px;
+    }
+
+    .cta-section .section-title {
+      color: var(--cream);
+      margin: 0 auto 16px;
+    }
+
+    .cta-section .section-body {
+      color: rgba(240,234,224,0.5);
+      margin: 0 auto 48px;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .cta-form input {
+      flex: 1;
+      padding: 13px 18px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(240,234,224,0.15);
+      background: rgba(240,234,224,0.05);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .cta-form input::placeholder { color: rgba(240,234,224,0.35); }
+    .cta-form input:focus { border-color: rgba(240,234,224,0.4); }
+
+    .btn-cream {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 13px 22px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .btn-cream:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .footer-logo svg { width: 22px; height: 22px; }
+    .footer-logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: -0.02em; }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .footer-link {
+      font-size: 13px;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--black); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── SUCCESS STATE ── */
+    .success-msg {
+      display: none;
+      font-size: 13px;
+      color: var(--mid);
+      margin-top: 12px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-link { display: none; }
+      section { padding: 80px 24px; }
+      .problem { grid-template-columns: 1fr; gap: 48px; }
+      .steps { grid-template-columns: 1fr; }
+      .step:first-child { border-radius: 20px 20px 0 0; }
+      .step:last-child { border-radius: 0 0 20px 20px; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .team-card:first-child { border-radius: 20px 20px 0 0; }
+      .team-card:last-child { border-radius: 0 0 20px 20px; }
+      footer { flex-direction: column; gap: 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="9" cy="18" r="7" fill="#0C0C0C"/>
+        <circle cx="27" cy="7" r="5" fill="#0C0C0C"/>
+        <circle cx="27" cy="29" r="5" fill="#0C0C0C"/>
+        <line x1="15.5" y1="15" x2="22.5" y2="9.5" stroke="#0C0C0C" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="15.5" y1="21" x2="22.5" y2="26.5" stroke="#0C0C0C" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">nexagen</span>
+    </a>
+    <div class="nav-right">
+      <a href="#problem" class="nav-link">The Problem</a>
+      <a href="#platform" class="nav-link">Platform</a>
+      <a href="#team" class="nav-link">Team</a>
+      <a href="#waitlist" class="btn-primary">Request Access</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    </div>
+    <h1 class="hero-headline">
+      The next generation<br/>of drug discovery<br/><em>is female.</em>
+    </h1>
+    <p class="hero-sub">
+      Nexagen is an AI-powered drug discovery platform built specifically for women's health, starting with the conditions science has ignored the longest.
+    </p>
+    <form class="hero-form" id="hero-form" onsubmit="handleSubmit(event, 'hero')">
+      <input type="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn-primary">Join Waitlist</button>
+    </form>
+    <p class="hero-note">Early access · No spam · Built by women, for women</p>
+    <p class="success-msg" id="hero-success">You're on the list! We'll be in touch.</p>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item">Target Identification</span>
+      <span class="ticker-item">Sex-Aware Analysis</span>
+      <span class="ticker-item">Compound Repurposing</span>
+      <span class="ticker-item">Literature Synthesis</span>
+      <span class="ticker-item">Endometriosis Research</span>
+      <span class="ticker-item">Biomarker Discovery</span>
+      <span class="ticker-item">Women's Health</span>
+      <span class="ticker-item">AI Drug Discovery</span>
+      <span class="ticker-item">Target Identification</span>
+      <span class="ticker-item">Sex-Aware Analysis</span>
+      <span class="ticker-item">Compound Repurposing</span>
+      <span class="ticker-item">Literature Synthesis</span>
+      <span class="ticker-item">Endometriosis Research</span>
+      <span class="ticker-item">Biomarker Discovery</span>
+      <span class="ticker-item">Women's Health</span>
+      <span class="ticker-item">AI Drug Discovery</span>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="problem">
+      <div class="fade-up">
+        <p class="section-label">The Problem</p>
+        <h2 class="section-title">Drug discovery for endometriosis has a problem.</h2>
+        <p class="section-body">
+          Decades of research have been built on male cell lines, male animal models, and clinical trials that excluded women. The result: conditions affecting millions of women have almost no approved treatments.
+          <br/><br/>
+          Nexagen changes that. We read everything and we find the connections researchers don't have time to find themselves.
+        </p>
+      </div>
+      <div class="stat-grid fade-up">
+        <div class="stat-card">
+          <div class="stat-number">176M</div>
+          <div class="stat-desc">women affected by endometriosis worldwide</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">9 yrs</div>
+          <div class="stat-desc">average delay to diagnosis</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">0</div>
+          <div class="stat-desc">approved disease-modifying treatments for endometriosis</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">£8.2B</div>
+          <div class="stat-desc">annual economic burden of women's health conditions in the UK</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="platform" style="background: var(--cream-dark); border-radius: 32px; margin: 0 24px;">
+    <div class="how-inner">
+      <div class="how-header">
+        <div class="fade-up">
+          <p class="section-label">The Platform</p>
+          <h2 class="section-title">From literature to lead compounds faster.</h2>
+        </div>
+        <p class="section-body fade-up" style="max-width: 380px;">
+          Nexagen's AI synthesises across fragmented disciplines: immunology, gynaecology and genomics to produce insights no single researcher could find alone.
+        </p>
+      </div>
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step-num">01</div>
+          <svg class="step-icon" viewBox="0 0 40 40" fill="none">
+            <rect x="4" y="8" width="32" height="4" rx="2" fill="#0C0C0C" opacity="0.15"/>
+            <rect x="4" y="16" width="24" height="4" rx="2" fill="#0C0C0C" opacity="0.3"/>
+            <rect x="4" y="24" width="28" height="4" rx="2" fill="#0C0C0C" opacity="0.6"/>
+            <rect x="4" y="32" width="18" height="4" rx="2" fill="#0C0C0C"/>
+          </svg>
+          <div class="step-title">Sex-Aware Literature Synthesis</div>
+          <div class="step-desc">Searches thousands of papers across disciplines. Prioritises female-derived research. Finds cross-disciplinary connections no one has.</div>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">02</div>
+          <svg class="step-icon" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="14" stroke="#0C0C0C" stroke-width="2.5" opacity="0.2"/>
+            <circle cx="20" cy="20" r="8" stroke="#0C0C0C" stroke-width="2.5" opacity="0.5"/>
+            <circle cx="20" cy="20" r="3" fill="#0C0C0C"/>
+          </svg>
+          <div class="step-title">Target Identification</div>
+          <div class="step-desc">Highlights novel, biologically plausible drug targets for endometriosis. Prioritised by druggability and evidence strength.</div>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">03</div>
+          <svg class="step-icon" viewBox="0 0 40 40" fill="none">
+            <path d="M8 32L20 10L32 32" stroke="#0C0C0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+            <path d="M13 24h14" stroke="#0C0C0C" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+            <circle cx="20" cy="10" r="3" fill="#0C0C0C"/>
+          </svg>
+          <div class="step-title">Compound Repurposing</div>
+          <div class="step-desc">Maps existing approved drugs against identified targets. The fastest path to treatment. Shortens timelines compared to de novo drug discovery.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="team-inner">
+      <div class="fade-up">
+        <p class="section-label">The Team</p>
+        <h2 class="section-title">Built by the people closest to the problem.</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card fade-up">
+          <div class="team-avatar">TD</div>
+          <div class="team-name">Toni Disu</div>
+          <div class="team-role">Co-Founder · CEO</div>
+          <div class="team-bg">BSc Medical Innovation & Enterprise · MRes Medical Device Design and Entrepreneurship, Imperial College London. Background in medical devices, biomedical AI, and venture.</div>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar">TB</div>
+          <div class="team-name">Tanvi Bhatla</div>
+          <div class="team-role">Co-Founder · COO</div>
+          <div class="team-bg">BSc Neuroscience · MRes Neurotechnology, Imperial College London. Expertise in neurobiological systems, neural interfaces, and computational methods applied to medical research.</div>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar">SH</div>
+          <div class="team-name">Sophia Hussain</div>
+          <div class="team-role">Co-Founder · CTO</div>
+          <div class="team-bg">BSc Mathematics with Actuarial Science. Quantitative background applied to biological data; modelling, analysis, and the statistical foundations of drug discovery research.</div>
+        </div>
+      </div>
+      <p class="section-body fade-up" style="margin-top: 32px;">
+        Selected for <strong>HackNation Venture Lab Cohort 2.</strong> 30 teams from 5,500+ applicants. Backed by EWOR and Databricks.
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="waitlist">
+    <h2 class="section-title fade-up">Be first to access Nexagen.</h2>
+    <p class="section-body fade-up">We're onboarding a small group of research teams and biotech founders to shape the platform. If you work in women's health drug discovery, we want to hear from you.</p>
+    <form class="cta-form fade-up" id="cta-form" onsubmit="handleSubmit(event, 'cta')">
+      <input type="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn-cream">Request Access</button>
+    </form>
+    <p class="success-msg" id="cta-success" style="color: rgba(240,234,224,0.6); margin-top: 16px;">You're on the list. We'll be in touch.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="9" cy="18" r="7" fill="#0C0C0C"/>
+        <circle cx="27" cy="7" r="5" fill="#0C0C0C"/>
+        <circle cx="27" cy="29" r="5" fill="#0C0C0C"/>
+        <line x1="15.5" y1="15" x2="22.5" y2="9.5" stroke="#0C0C0C" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="15.5" y1="21" x2="22.5" y2="26.5" stroke="#0C0C0C" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span class="footer-logo-text">nexagen</span>
+    </a>
+    <div class="footer-right">
+      <span style="font-size: 13px; color: var(--mid);">© 2026 Nexagen</span>
+      <a href="mailto:hello@nexagen.ai" class="footer-link">hello@nexagen.bio</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Form submission
+    function handleSubmit(e, id) {
+      e.preventDefault();
+      const form = e.target;
+      const input = form.querySelector('input');
+      const successEl = document.getElementById(id + '-success');
+      // In production, POST to your backend here
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

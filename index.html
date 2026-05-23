@@ -191,6 +191,47 @@
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
+    /* ── INSTITUTIONS ── */
+    .institutions-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 48px;
+      text-align: center;
+    }
+    .institutions-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+    .institutions-track-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .institutions-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 80px;
+      will-change: transform;
+    }
+    .inst-logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+    .inst-logo.imperial {
+      height: 28px;
+    }
+    .inst-logo-ucl {
+      height: 48px;
+      width: auto;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
     /* ── SECTIONS ── */
     section { padding: 120px 48px; }
     .section-label {
@@ -499,25 +540,20 @@
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPnYSbLB0yAkp9VEmTySHZUfwO2lmAxV6sVlsd5_taA4u6ag/viewform?usp=publish-editor" target="_blank" class="btn-primary" style="animation: fadeUp 0.6s 0.3s ease both;">Fill Out Our Questionnaire</a>
     <p class="hero-note">Early access · Built by women, for endometriosis researchers</p>
   </section>
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <span class="ticker-item">Biomarker Prioritisation</span>
-      <span class="ticker-item">Evidence Scoring</span>
-      <span class="ticker-item">Study Design Guidance</span>
-      <span class="ticker-item">Target Ranking</span>
-      <span class="ticker-item">Endometriosis R&D</span>
-      <span class="ticker-item">Conflict Detection</span>
-      <span class="ticker-item">Source Traceability</span>
-      <span class="ticker-item">Research Decisions</span>
-      <span class="ticker-item">Biomarker Prioritisation</span>
-      <span class="ticker-item">Evidence Scoring</span>
-      <span class="ticker-item">Study Design Guidance</span>
-      <span class="ticker-item">Target Ranking</span>
-      <span class="ticker-item">Endometriosis R&D</span>
-      <span class="ticker-item">Conflict Detection</span>
-      <span class="ticker-item">Source Traceability</span>
-      <span class="ticker-item">Research Decisions</span>
+  <!-- INSTITUTIONS -->
+  <div class="institutions-wrap">
+    <p class="institutions-label">Built by experts from leading institutions</p>
+    <div class="institutions-track-wrap">
+      <div class="institutions-track">
+        <img src="kcl2.png" class="inst-logo" alt="King's College London" />
+        <img src="qmul.jpg" class="inst-logo" alt="Queen Mary University of London" />
+        <img src="ucl_logo.png" class="inst-logo-ucl" alt="UCL" />
+        <img src="imperial2.png" class="inst-logo imperial" alt="Imperial College London" />
+        <img src="kcl2.png" class="inst-logo" alt="King's College London" />
+        <img src="qmul.jpg" class="inst-logo" alt="Queen Mary University of London" />
+        <img src="ucl_logo.png" class="inst-logo-ucl" alt="UCL" />
+        <img src="imperial2.png" class="inst-logo imperial" alt="Imperial College London" />
+      </div>
     </div>
   </div>
   <!-- PROBLEM -->
@@ -655,12 +691,33 @@
     </div>
   </footer>
   <script>
+    // Fade-up on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
         if (el.isIntersecting) el.target.classList.add('visible');
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Seamless institution logo carousel via rAF
+    (function () {
+      const track = document.querySelector('.institutions-track');
+      if (!track) return;
+      let x = 0;
+      const speed = 0.4; // px per frame — adjust to taste
+
+      function tick() {
+        x -= speed;
+        // halfWidth = width of the original set (first 4 logos)
+        const halfWidth = track.scrollWidth / 2;
+        if (x <= -halfWidth) x += halfWidth;
+        track.style.transform = 'translateX(' + x + 'px)';
+        requestAnimationFrame(tick);
+      }
+
+      // Wait one frame so layout is fully painted before reading scrollWidth
+      requestAnimationFrame(tick);
+    })();
   </script>
 </body>
 </html>

@@ -6,7 +6,11 @@
   --mid: #550000;
   --border: rgba(12,12,12,0.1);
 }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body { overflow-x: hidden; }
 body {
   background-color: var(--cream);
   background-image:
@@ -202,6 +206,7 @@ nav.nav--scrolled .btn-nav:hover { background: var(--black); color: var(--cream)
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   padding: 0;
   display: flex;
   align-items: flex-end;
@@ -829,33 +834,40 @@ footer {
 @media (max-width: 540px) {
   body { font-size: 15px; }
 
-  /* Nav */
-  nav { padding: 14px 20px; }
-  .nav-logo svg { width: 32px; height: 32px; }
-  .nav-logo-text { font-size: 20px; }
-  .btn-nav { font-size: 12px; padding: 9px 16px; }
+  /* Nav — hide wordmark on very small screens, keep mark + CTA */
+  nav { padding: 14px 16px; }
+  .nav-logo svg { width: 28px; height: 28px; }
+  .nav-logo-text { font-size: 17px; }
+  .nav-logo { gap: 7px; }
+  .btn-nav { font-size: 11px; padding: 8px 14px; min-height: 36px; }
 
   /* Hero */
-  .hero-content { padding: 0 20px 52px; }
-  .hero-headline { font-size: clamp(36px, 9vw, 48px); }
-  .hero-sub { font-size: 14px; }
-  .btn-hero-primary { font-size: 13px; padding: 13px 24px; }
+  .hero-content { padding: 0 20px 48px; max-width: 100%; }
+  .hero-headline { font-size: clamp(32px, 8.5vw, 44px); }
+  .hero-sub { font-size: 14px; max-width: 100%; }
+  .btn-hero-primary { font-size: 13px; padding: 13px 22px; }
+  .hero-trust-signal { flex-direction: column; align-items: flex-start; gap: 6px; }
   .hero-trust-text { font-size: 11px; }
 
   /* Institutions */
   .institutions-wrap { padding: 20px 16px; }
+  .inst-logo { height: 36px; }
+  .inst-logo-ucl { height: 36px; }
+  .inst-logo.imperial { height: 22px; }
 
   /* Sections */
   section { padding: 56px 20px; }
   .cta-section { padding: 56px 20px; }
   #problem, #platform, #team { padding-top: 48px; }
   #problem { padding-bottom: 48px; }
-  .section-title { font-size: clamp(28px, 8vw, 44px); }
+  .section-title { font-size: clamp(28px, 8vw, 44px); max-width: 100%; }
+  .section-body { max-width: 100%; }
 
   /* Stat rows */
-  .stat-row { grid-template-columns: 20px 1fr auto; gap: 10px; padding: 14px 16px; }
+  .stat-row { grid-template-columns: 18px 1fr auto; gap: 10px; padding: 14px 14px; }
   .stat-idx { font-size: 11px; }
   .stat-lbl { font-size: 13px; }
+  .stat-val { font-size: clamp(20px, 5vw, 28px); }
 
   /* Platform */
   #platform {
@@ -866,21 +878,25 @@ footer {
   .step-body { grid-template-columns: 1fr; }
   .step-icon { display: none; }
   .step-item { padding: 24px 20px; }
+  .step-title { font-size: clamp(22px, 6vw, 32px); }
 
   /* Team */
   .author-initials { font-size: 40px; margin-bottom: 20px; }
   .author-name { font-size: 18px; }
   .team-author { padding: 28px 20px; }
-  .backed-logo { height: 60px; }
-  .team-backed-logos { gap: 28px; }
+  .backed-logo { height: 56px; }
+  .team-backed-logos { gap: 24px; }
+  .team-backed-label { font-size: 15px; }
 
   /* CTA */
   .cta-inner { gap: 28px; }
   .cta-side { align-self: auto; }
-  .btn-cream { font-size: 13px; padding: 13px 24px; }
+  .btn-cream { font-size: 13px; padding: 13px 22px; }
 
   /* Footer */
   footer { padding: 32px 20px; }
+  .footer-logo svg { width: 22px; height: 22px; }
+  .footer-logo-text { font-size: 15px; }
 }
 
 /* ── REDUCED MOTION ── */

@@ -803,47 +803,84 @@ footer {
 /* ── RESPONSIVE: TABLET ── */
 @media (max-width: 960px) {
   .trust-bar { display: none; }
-  nav { top: 0; padding: 20px 24px; }
+  nav { top: 0; padding: 16px 24px; }
   .nav-left { display: none; }
-  section { padding: 80px 24px; }
-  .cta-section { padding: 80px 24px; }
+  section { padding: 72px 32px; }
+  .cta-section { padding: 72px 32px; }
 
-  /* Hero: tighten content, hide stat card */
   .hero-content { padding: 0 32px 56px; }
   .hero-stat-card { display: none; }
 
-  .section-image-band { height: 220px; }
-  .problem { grid-template-columns: 1fr; gap: 48px; }
+  .institutions-wrap { padding: 24px 32px; }
+  .problem { grid-template-columns: 1fr; gap: 40px; }
+  #problem, #platform, #team { padding-top: 56px; }
+  #problem { padding-bottom: 56px; }
   .how-header { flex-direction: column; align-items: flex-start; margin-bottom: 40px; }
   .step-body { grid-template-columns: 1fr 36px; }
   .step-item { padding: 28px 28px; }
   .team-authors { grid-template-columns: 1fr; gap: 16px; }
-  .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .cta-inner { grid-template-columns: 1fr; gap: 32px; }
+  .cta-side { align-self: auto; }
   footer { flex-direction: column; gap: 24px; text-align: center; }
   .footer-right { flex-direction: column; gap: 12px; }
 }
 
 /* ── RESPONSIVE: MOBILE ── */
 @media (max-width: 540px) {
-  body { font-size: 16px; }
-  nav { padding: 16px 20px; }
-  .hero-content { padding: 0 20px 48px; }
-  .section-image-band { height: 180px; }
+  body { font-size: 15px; }
+
+  /* Nav */
+  nav { padding: 14px 20px; }
+  .nav-logo svg { width: 32px; height: 32px; }
+  .nav-logo-text { font-size: 20px; }
+  .btn-nav { font-size: 12px; padding: 9px 16px; }
+
+  /* Hero */
+  .hero-content { padding: 0 20px 52px; }
+  .hero-headline { font-size: clamp(36px, 9vw, 48px); }
+  .hero-sub { font-size: 14px; }
+  .btn-hero-primary { font-size: 13px; padding: 13px 24px; }
+  .hero-trust-text { font-size: 11px; }
+
+  /* Institutions */
+  .institutions-wrap { padding: 20px 16px; }
+
+  /* Sections */
+  section { padding: 56px 20px; }
+  .cta-section { padding: 56px 20px; }
+  #problem, #platform, #team { padding-top: 48px; }
+  #problem { padding-bottom: 48px; }
+  .section-title { font-size: clamp(28px, 8vw, 44px); }
+
+  /* Stat rows */
+  .stat-row { grid-template-columns: 20px 1fr auto; gap: 10px; padding: 14px 16px; }
+  .stat-idx { font-size: 11px; }
+  .stat-lbl { font-size: 13px; }
+
+  /* Platform */
   #platform {
     margin: 0 12px !important;
     border-radius: 24px !important;
-    padding: 64px 20px !important;
+    padding: 48px 20px !important;
   }
-  .stat-val { font-size: clamp(24px, 8vw, 36px); }
   .step-body { grid-template-columns: 1fr; }
   .step-icon { display: none; }
+  .step-item { padding: 24px 20px; }
+
+  /* Team */
   .author-initials { font-size: 40px; margin-bottom: 20px; }
   .author-name { font-size: 18px; }
-  .team-author { padding: 32px 24px; }
-  .step-item { padding: 24px 24px; }
-  .cta-section { padding: 80px 24px; }
+  .team-author { padding: 28px 20px; }
+  .backed-logo { height: 60px; }
+  .team-backed-logos { gap: 28px; }
+
+  /* CTA */
+  .cta-inner { gap: 28px; }
+  .cta-side { align-self: auto; }
+  .btn-cream { font-size: 13px; padding: 13px 24px; }
+
+  /* Footer */
   footer { padding: 32px 20px; }
-  .btn-cream { font-size: 12px; padding: 12px 24px; }
 }
 
 /* ── REDUCED MOTION ── */

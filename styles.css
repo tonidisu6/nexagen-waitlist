@@ -373,20 +373,22 @@ section { padding: 140px 72px; }
 .section-label {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--mid);
   margin-bottom: 28px;
-  background: rgba(85, 0, 0, 0.06);
-  border: 1px solid rgba(85, 0, 0, 0.1);
-  border-radius: 100px;
-  padding: 5px 14px;
 }
-.cta-section .section-label {
-  background: rgba(85, 0, 0, 0.06);
-  border-color: rgba(85, 0, 0, 0.15);
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
 }
 .section-title {
   font-family: 'Fraunces', serif;
@@ -485,6 +487,25 @@ section { padding: 140px 72px; }
 .how-inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* ── PROBLEM — label left, headline/body centered and spread out ── */
+#problem .section-label { margin-bottom: 36px; }
+#problem .section-title {
+  max-width: 960px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+#problem .section-body {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.9;
+  text-align: center;
+}
+#platform .section-title,
+#team .section-title {
+  max-width: 900px;
 }
 .how-header {
   display: flex;
@@ -771,6 +792,8 @@ footer {
 .steps-list.visible .step-item:nth-child(1) { transition-delay: 0s; }
 .steps-list.visible .step-item:nth-child(2) { transition-delay: 0.14s; }
 .steps-list.visible .step-item:nth-child(3) { transition-delay: 0.28s; }
+.steps-list.visible .step-item:nth-child(4) { transition-delay: 0.42s; }
+.steps-list.visible .step-item:nth-child(5) { transition-delay: 0.56s; }
 
 /* Team: left to right */
 .team-authors.visible .team-author:nth-child(1) { transition-delay: 0s; }

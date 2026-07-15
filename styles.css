@@ -834,6 +834,10 @@ footer {
   .trust-bar { display: none; }
   nav { top: 0; padding: 16px 24px; }
   .nav-left { display: none; }
+  /* A logo centered across the full nav width collides with the
+     right-aligned CTA once the viewport is this narrow — drop it
+     back into normal flow on the left instead of fighting for space. */
+  .nav-logo { position: static; transform: none; }
   section { padding: 72px 32px; }
   .cta-section { padding: 72px 32px; }
 

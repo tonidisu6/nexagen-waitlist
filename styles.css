@@ -73,16 +73,19 @@ nav {
   animation: slideDown 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .nav-left {
+  grid-column: 1;
   display: flex;
   align-items: center;
   gap: 32px;
 }
 .nav-right {
+  grid-column: 3;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 .nav-logo {
+  grid-column: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -578,7 +581,6 @@ section { padding: 140px 72px; }
   flex-direction: column;
   align-items: center;
   gap: 28px;
-  border-top: 1px solid var(--border);
   padding-top: 32px;
   margin-top: 0;
   text-align: center;
@@ -614,15 +616,13 @@ section { padding: 140px 72px; }
   border-radius: 20px;
   background: rgba(240, 234, 224, 0.35);
 }
-.author-initials {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 200;
-  color: var(--mid);
-  letter-spacing: -0.03em;
-  line-height: 1;
+.author-photo {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 28px;
-  opacity: 0.55;
+  display: block;
 }
 .author-name {
   font-family: 'Fraunces', serif;
@@ -836,6 +836,14 @@ footer {
   section { padding: 72px 32px; }
   .cta-section { padding: 72px 32px; }
 
+  /* Manual line breaks are tuned for wide desktop headlines only —
+     drop them below the tablet breakpoint so the text reflows naturally. */
+  #problem .section-title br,
+  #platform .section-title br,
+  #team .section-title br {
+    display: none;
+  }
+
   .hero-content { padding: 0 32px 56px; }
   .hero-stat-card { display: none; }
 
@@ -904,7 +912,7 @@ footer {
   .step-title { font-size: clamp(22px, 6vw, 32px); }
 
   /* Team */
-  .author-initials { font-size: 40px; margin-bottom: 20px; }
+  .author-photo { width: 76px; height: 76px; margin-bottom: 20px; }
   .author-name { font-size: 18px; }
   .team-author { padding: 28px 20px; }
   .backed-logo { height: 56px; }

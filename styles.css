@@ -838,6 +838,10 @@ footer {
      right-aligned CTA once the viewport is this narrow — drop it
      back into normal flow on the left instead of fighting for space. */
   .nav-logo { position: static; transform: none; }
+  /* Fully opaque once scrolled — on mobile the bar has less margin
+     for anything to show through, and backdrop-filter blur alone
+     isn't reliably supported on every mobile browser. */
+  nav.nav--scrolled { background: var(--cream); }
   section { padding: 72px 32px; }
   .cta-section { padding: 72px 32px; }
 
